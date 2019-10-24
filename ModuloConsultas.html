@@ -1,0 +1,398 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Consultas</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            
+            font-family: Arial, Helvetica, sans-serif;
+            background: rgb(239,252,237);
+            background: radial-gradient(circle, rgba(239,252,237,1) 0%, rgba(244,255,243,1) 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 110vh;
+            margin:0 0 20px 0;
+        }
+        h3{
+            margin: 0;
+        }
+        li{
+            padding: 2px 0;
+        }
+        img{
+            height: 100%;
+            max-width: 100%;
+        }
+        a{
+            text-decoration: none;
+        }
+        ul{
+        }
+        .nav{
+            padding: 10px 25px;
+            width: 100%;
+            box-shadow: 0px 5px 5px rgb(228, 224, 224);
+            display: flex;
+            justify-content: center;
+            background: #fff;
+        }
+        .nav-container{
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+        }
+        .nav-logo{
+            height: 80px;
+        }
+        .nav-portal{
+            height: 80px;
+        }
+        .container{
+            margin:0 auto;
+            width: 80%;
+            display: flex;/**/
+            flex-wrap: wrap;
+            flex-direction: column;
+            justify-content: center;/**/
+            align-items: center;/**/
+            /* height: 100vh; */
+
+        }
+        .portada{
+            width: 100%;
+        }    
+        .portada-titulo{
+            text-align: center;
+            color:#00A654;
+            padding: 15px;
+            
+        }
+        .opciones{
+            display: flex;
+            width: 100%;
+            justify-content: center;
+        }
+        .consultas{
+            align-self: flex-start;
+            position: relative;
+            margin: 0 15px;
+            padding: 20px 10px;
+            width: 25%;
+            box-shadow: 1px 2px 5px #000;
+            background:#1d4779;
+            border-radius: 10px;
+            transition: all 0.1s ease;
+            overflow: hidden;
+        }
+        @media only screen and (max-width:600px){
+            .nav-container{
+                width: 100%;
+            }
+            .nav-logo{
+             height:40px;
+            }
+            .nav-portal{
+            height: 40px;
+            }
+            .portada-titulo{
+                margin: 0;
+                padding: 10px;
+            }
+            .consultas{
+                width: 100% !important;
+                margin: 20px 15px;
+
+            }
+            .opciones{
+                flex-wrap: wrap;
+            }
+            .consultas-cabecera-titulo{
+                font-size: 20px !important;
+            }
+        }
+        @media only screen and (min-width:601px) and (max-width:900px){
+            .opciones{
+                flex-wrap: wrap;
+            }
+            .consultas{
+                width: 40%;
+                margin: 20px 15px;
+            }
+
+        }
+        @media only screen and (min-width:901px) and (max-width:1200px){
+            .consultas-cabecera-titulo{
+                font-size: 15px !important ;
+            }
+        }
+        /* efecto Hover */
+        .consultas::before{
+            top:0;
+            right: 0;
+            content:'';
+            position: absolute;
+            height: 130px;
+            width: 100%;
+            border-radius: 0 0 50% 50%;
+            background-color: white;
+            transform: translateY(-130px);
+            transition: all .2s ease ;
+        }
+        .consultas:hover.consultas::before{
+            transform: translateY(0);
+        }
+        .consultas:hover:nth-of-type(1) .consultas-cabecera-imagen{
+            background-image: url('image/estado.svg');
+            z-index: 100;
+        }
+        .consultas:hover:nth-of-type(2) .consultas-cabecera-imagen{
+            background-image: url('image/transporte.svg');
+            z-index: 100;
+        }
+        .consultas:hover:nth-of-type(3) .consultas-cabecera-imagen{
+            background-image: url('image/multa.svg');
+            z-index: 100;
+        }
+        .consultas:hover:nth-of-type(4) .consultas-cabecera-imagen{
+            background-image: url('image/multas.svg');
+            z-index: 100;
+        }
+        /* fin de efecto hover  */
+        .consultas-cabecera{
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+
+        }
+        .consultas-cabecera-imagen{
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
+        }
+        /* Cambio de Imagen  */
+        .consultas:nth-of-type(1) .consultas-cabecera-imagen{
+            background-image: url('image/estado-whiteStroke.svg');
+        }
+        .consultas:nth-of-type(2) .consultas-cabecera-imagen{
+            background-image: url('image/transporte-whiteStroke-01.svg');
+        }
+        .consultas:nth-of-type(3) .consultas-cabecera-imagen{
+            background-image: url('image/multa-whiteStroke.svg');
+        }
+        .consultas:nth-of-type(4) .consultas-cabecera-imagen{
+            background-image: url('image/multas-whiteStroke.svg');
+        }
+        /* fin de cambio de imagen  */
+        .consultas-cabecera-titulo{
+            text-align: center;
+            color:#fff;
+            padding: 10px;
+            height: 80px;
+            font-size: 18px;
+            vertical-align: center;
+        }
+        .consultas-detalles{
+            position: absolute;
+            cursor:pointer;
+            bottom:0;
+            left: 0;
+            height: 20px;
+            width: 100%;
+            background: white;
+            border-radius: 0 0 10px 10px;
+            font-size: 12px;
+            color:#73717e;
+
+        }
+        .consultas-detalles:hover{
+            color:#000;
+            font-weight: 700;
+        
+        }
+        .consultas-detalles-button{
+            margin: 0;
+            padding: 2px;
+            text-align: center;
+
+        }
+        .consultas-contenido{
+            font-size: 14px;
+            display: none;
+            color:#ebebeb;
+
+        }
+        .active{
+            display:block;
+        }
+        @keyframes abrirModal{
+            from{
+                max-height:0px;
+                opacity: 0.1;
+
+            }
+            to{
+                max-height: 200px;
+                opacity: 1;
+
+            }
+        }
+        @keyframes cerrarModal{
+            from{
+                max-height: 200px;
+                opacity: 0.1;
+            }
+            to{
+                max-height:0px;
+                opacity: 0;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="http://www.sath.gob.pe/" target="_blank">
+                    <img src="image/sath-logo.svg" alt="logo">
+                </a>
+            </div> 
+            <div class="nav-portal">
+                <a href="http://www.transparencia.gob.pe/enlaces/pte_transparencia_enlaces.aspx?id_entidad=13805&id_tema=1&ver=D" target="_blank">
+                    <img src="image/logo-portal-transparencia.png" alt="portal-transparencia">
+                </a>    
+            </div>
+        </div>    
+    </nav>
+    <div class="container">
+        <div class="portada">
+           <h1 class="portada-titulo">¿Qué necesitas hacer?</h1> 
+        </div>
+        <div class="opciones">
+            <div class="consultas">
+                <a href="#">
+                    <div class="consultas-cabecera">
+                        <div class="consultas-cabecera-imagen"  id="img-estado-cuenta"></div>
+                        <h3 class="consultas-cabecera-titulo">
+                        <p>Estado de Cuenta</p> 
+                        </h3>
+                    </div>
+                </a>
+                <div class="consultas-detalles">
+                    <p class="consultas-detalles-button">Detalles</p>
+                </div>
+                <div class="consultas-contenido">
+                    <ul>
+                        <li>Predial</li>
+                        <li>Vehicular</li>
+                        <li>Arbitrios</li>
+                        <li>Alcabala</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="consultas">
+                <a href="#">
+                    <div class="consultas-cabecera">
+                        <div class="consultas-cabecera-imagen" id=""></div>
+                        <h3 class="consultas-cabecera-titulo">Consulta Papeletas de Transporte y Tránsito</h3>
+                    </div>
+                </a>
+                <div class="consultas-detalles">
+                    <p class="consultas-detalles-button">Detalles</p>
+                </div>
+                <div class="consultas-contenido">
+                    <ul>
+                        <li>Tránsito</li>
+                        <li>Transporte</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="consultas">
+                <a href="#">
+                    <div class="consultas-cabecera">
+                        <div class="consultas-cabecera-imagen" heigth="100px" width="100px">   </div>
+                        <h3 class="consultas-cabecera-titulo">Consulta de Papeletas Administrativas</h3>
+                    </div>
+                </a>
+                <div class="consultas-detalles">
+                    <p class="consultas-detalles-button">Detalles</p>
+                </div>
+                <div class="consultas-contenido">
+                    <ul>
+                        <li>Licencia de funcionamiento</li>
+                        <li>Certificado de defensa civil</li>
+                        <li>Carné de sanidad</li>
+                        <li>Desmonte</li>
+                        <li>Ocupación de Vías Públicas</li>
+                        <li>Variar Áreas Económicas</li>
+                        <li>Expedio de bebidas alohólicas</li>
+                        <li>Certificado de Inspección Técnica de Seguridad</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="consultas">
+                <a href="#">
+                    <div class="consultas-cabecera">
+                        <div class="consultas-cabecera-imagen" >     </div>
+                        <h3 class="consultas-cabecera-titulo"> <p>Otras Deudas </p></h3>
+                    </div>
+                </a>
+                <div class="consultas-detalles">
+                    <p class="consultas-detalles-button">Detalles</p>
+                </div>
+                <div class="consultas-contenido">
+                    <ul>
+                        <li>Multas</li>                     
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $detalles=document.querySelectorAll(".consultas-detalles");
+        $consultaTitulo=document.querySelectorAll(".consultas-cabecera-titulo");
+        $contenido=document.querySelectorAll(".consultas-contenido");
+        $detalleBoton=document.querySelectorAll(".consultas-detalles-button");
+
+        for(let i=0;i<$detalles.length;i++){
+            $detalles[i].addEventListener("click",function(){
+                if($contenido[i].classList.contains("active")){
+                    hideDetalles(i);
+                    $detalleBoton[i].innerHTML="Detalles";
+                    setTimeout(function(){
+                    $consultaTitulo[i].style.borderBottom="none";
+                    },500)
+                }else{
+                    $contenido[i].style.animation="abrirModal 0.5s linear";
+                    $contenido[i].classList.add("active");
+                    $consultaTitulo[i].style.borderBottom="1px solid #9ca69e";
+                    $consultaTitulo[i].style.width ="100%";
+                    $detalleBoton[i].innerHTML="Cerrar";
+                }
+
+        });
+        }
+        function hideDetalles(id){
+            $contenido[id].style.animation="cerrarModal 0.5s linear";
+            setTimeout(function(){
+                $contenido[id].classList.remove("active")
+            },500);
+        }
+        
+       
+    </script>
+</body>
+</html>
