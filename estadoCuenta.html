@@ -43,16 +43,11 @@
             display: flex;
             justify-content: center;
             background: #fff;
-
-            /* outline: red solid 1px;  */
         }
         .nav-container{
             display: flex;
             justify-content: space-between;
             width: 80%;
-
-            /* outline: goldenrod solid 1px;  */
-
         }
         .nav-logo{
             height: 80px;
@@ -69,20 +64,17 @@
             justify-content: center;/**/
             align-items: center;/**/
             /* height: 100vh; */
-            /* outline: green solid 1px;  */
         }
         .portada{
             width: 100%;
         }    
         .portada-titulo{
             text-align: center;
-            color:#00A654;
+            color:#00A959;
             padding: 15px;
         }
         .wrapper {
             width: 100%;
-
-            /* outline: red solid 1px; */
         }
         .tabs {
             position: relative;
@@ -94,17 +86,19 @@
             justify-content:  space-around;
             cursor: pointer; 
         }
+        .titleTab {
+            font-weight: normal;
+        }
+        /* start tab - items  */
         .tabs-items {
             position: relative;
             z-index: 40;
-            /* z-index: 60; */
             width: 25%;
             height: 60px;
             line-height: 60px;
             text-align: center;
             border-top-left-radius: 5px;
             border-top-right-radius: 5px;
-            /* outline: gold 1px solid; */
         }
         .tabs-items::after {
             content: "";
@@ -123,14 +117,13 @@
             0%{top: 0;}
             100% {top:-10px; }
         }
-        .tabs-items > p {
+        .tabs-items > h3 {
             margin: 0;
             padding: 0;
             position: relative  ;
             z-index: 20;
-            color:WHITE;
+            color:white;
             display: block;
-            /* outline: red 1px solid; */
         }
         .newTab {
             position: absolute;
@@ -142,7 +135,6 @@
             border-top-left-radius: 5px;
             background-color:white;    
             opacity: 0;
-            /* animation: hidetab 1S linear; */
             }
         @keyframes hidetab {
            0% {
@@ -152,28 +144,13 @@
             transform: translateY(-0%);
            }
         }
-        .tab-content {
-            position: relative;
-            z-index: 50;
-            margin: 0;
-            padding: 0;
-            border-radius: 5px;
-            background-color: #ffffff;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-        }
-        .tab-content > li {
-            width: 100%;
-            /* background-color: red; */
-            list-style: none;
-
-            /* outline: orange 1px solid ;  */
-        }
         .activeTabItem{
             background-color: rgba(255, 255, 255, 1);
             transition-delay: 2s;
         }
         .activeTabItem .titleTab{
             color :black;
+            font-weight: bold;
             animation: colorTitle .4s ease-in-out  forwards;
         }
             @keyframes colorTitle {
@@ -195,7 +172,48 @@
             opacity: 1;
            }
         }
+        /* emd tab - items  */
+        
+        /* start tab - contents  */
+        .tab-contents {
+            position: relative;
+            z-index: 50;
+            margin: 0;
+            padding: 0;
+            border-radius: 5px;
+            background-color: #ffffff;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+            list-style: none;
+        }
+        .tab-itemContent {
+            display: none;
+            padding: 2em;
+            outline: red solid 1px;
+        }
 
+
+        .tab-itemContent:nth-child(1) {
+            color:red;
+        }
+        .tab-itemContent:nth-child(2) {
+            color:orange;
+        }
+        .tab-itemContent:nth-child(3) {
+            color:blue;
+        }
+        .tab-itemContent:nth-child(4) {
+            color:green;
+        }
+        
+
+        .activeTabContent {
+            display: block;
+        }
+        .itemContent-wrapper {
+            text-align: justify;
+        }
+       
+        /* end tab - contents  */
     </style>
 </head>
 <body>
@@ -220,65 +238,91 @@
         <section class="wrapper">
             <!-- opciones  -->
             <ul class="tabs">
-                <li class="tabs-items activeTabItem">
-                    <p class="titleTab">Código</p>
+                <li class="tabs-items activeTabItem" onclick="showTabContents(0)">
+                    <h3 class="titleTab">Código</h3>
                     <div class="newTab"></div>
                 </li>
-                <li class="tabs-items" >
-                    <p class="titleTab">DNI - RUC</p>
+                <li class="tabs-items" onclick="showTabContents(1)">
+                    <h3 class="titleTab">DNI - RUC</h3>
                     <div class="newTab"></div>
                 </li>
-                <li class="tabs-items" >
-                    <p class="titleTab">Razón Social</p>
+                <li class="tabs-items" onclick="showTabContents(2)">
+                    <h3 class="titleTab">Razón Social</h3>
                     <div class="newTab"></div>
                 </li>
-                <li class="tabs-items" >
-                    <p class="titleTab">Apellidos y Nombres</p>
+                <li class="tabs-items" onclick="showTabContents(3)">
+                    <h3 class="titleTab">Apellidos y Nombres</h3>
                     <div class="newTab"></div>
                 </li>
             </ul>
             <!-- contenidos de las opciones -->
-            <ul class="tab-content">
-                <li class="active">
-                    <div class="content-wrapper">
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet excepturi, necessitatibus officiis, temporibus modi et neque dolorum aperiam cupiditate labore placeat debitis optio adipisci rerum ea omnis tempora dolores quas?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas expedita nulla delectus neque, reiciendis totam, modi numquam fugit libero alias laudantium enim ea saepe consectetur eligendi laboriosam quisquam hic. Voluptas?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum quaerat rem dolorem omnis consequatur ex officia praesentium commodi perspiciatis? Amet quo illum iusto repudiandae iure et autem corrupti odio nisi?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio reiciendis suscipit a maiores nesciunt dolores iure recusandae ad iusto tempore, optio repellendus. A recusandae soluta inventore dolor fuga voluptas vitae?Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem quaerat natus accusamus blanditiis, ut porro ipsum sit illo pariatur beatae, dolorem qui. Sapiente veniam dicta ut deserunt officiis minus quo?</p>
+            <ul class="tab-contents">
+                <li class="tab-itemContent activeTabContent">
+                    <div class="itemContent-wrapper">
+                       <h4>Ingrese el código de contribuyente:</h4>
+
+
+
+                        
                     </div>
                 </li>
-                 <!-- <li class="active">
-                    <div class="content-wrapper">
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet excepturi, necessitatibus officiis, temporibus modi et neque dolorum aperiam cupiditate labore placeat debitis optio adipisci rerum ea omnis tempora dolores quas?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas expedita nulla delectus neque, reiciendis totam, modi numquam fugit libero alias laudantium enim ea saepe consectetur eligendi laboriosam quisquam hic. Voluptas?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum quaerat rem dolorem omnis consequatur ex officia praesentium commodi perspiciatis? Amet quo illum iusto repudiandae iure et autem corrupti odio nisi?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio reiciendis suscipit a maiores nesciunt dolores iure recusandae ad iusto tempore, optio repellendus. A recusandae soluta inventore dolor fuga voluptas vitae?Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem quaerat natus accusamus blanditiis, ut porro ipsum sit illo pariatur beatae, dolorem qui. Sapiente veniam dicta ut deserunt officiis minus quo?</p>
+                 <li class="tab-itemContent">
+                    <div class="itemContent-wrapper">
+                       <h4>Ingrese el número de DNI o RUC:</h4>
+                            
                     </div>
                 </li>
-                <li class="active">
-                    <div class="content-wrapper">
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet excepturi, necessitatibus officiis, temporibus modi et neque dolorum aperiam cupiditate labore placeat debitis optio adipisci rerum ea omnis tempora dolores quas?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas expedita nulla delectus neque, reiciendis totam, modi numquam fugit libero alias laudantium enim ea saepe consectetur eligendi laboriosam quisquam hic. Voluptas?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum quaerat rem dolorem omnis consequatur ex officia praesentium commodi perspiciatis? Amet quo illum iusto repudiandae iure et autem corrupti odio nisi?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio reiciendis suscipit a maiores nesciunt dolores iure recusandae ad iusto tempore, optio repellendus. A recusandae soluta inventore dolor fuga voluptas vitae?Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem quaerat natus accusamus blanditiis, ut porro ipsum sit illo pariatur beatae, dolorem qui. Sapiente veniam dicta ut deserunt officiis minus quo?</p>
+                <li class="tab-itemContent">
+                    <div class="itemContent-wrapper">
+                       <h4>Ingrese el nombre de la Razón Social:</h4>
+
                     </div>
                 </li>
-                <li class="active">
-                        <div class="content-wrapper">
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet excepturi, necessitatibus officiis, temporibus modi et neque dolorum aperiam cupiditate labore placeat debitis optio adipisci rerum ea omnis tempora dolores quas?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas expedita nulla delectus neque, reiciendis totam, modi numquam fugit libero alias laudantium enim ea saepe consectetur eligendi laboriosam quisquam hic. Voluptas?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum quaerat rem dolorem omnis consequatur ex officia praesentium commodi perspiciatis? Amet quo illum iusto repudiandae iure et autem corrupti odio nisi?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio reiciendis suscipit a maiores nesciunt dolores iure recusandae ad iusto tempore, optio repellendus. A recusandae soluta inventore dolor fuga voluptas vitae?Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem quaerat natus accusamus blanditiis, ut porro ipsum sit illo pariatur beatae, dolorem qui. Sapiente veniam dicta ut deserunt officiis minus quo?</p>
-                        </div>
-                </li> -->
+                <li class="tab-itemContent">
+                    <div class="itemContent-wrapper">
+                       <h4>Ingrese los Apellidos y Nombres:</h4>
+
+                </div>
+                </li>
             </ul>
         </section>
     </div>
     <script>
-        $tabsItems=document.querySelectorAll(".tabs-items");
-        $newTab=document.querySelectorAll(".newTab");
+        var tabsItems=document.querySelectorAll(".tabs-items");
+        // for (var i=0 ; $tabsItems.length;i++){
+        //     console.log($tabsItems[i])
+
+        // }
+
+
+        var $tabsItemContent=document.querySelectorAll(".tab-itemContent")
+        var $newTab=document.querySelectorAll(".newTab");
 
         function limpiarClases() {
-            for ( let i = 0 ; i < $tabsItems.length; i++) {
-                $tabsItems[i].classList.remove("activeTabItem")
+            for ( var i = 0 ; i < tabsItems.length; i++) {
+                tabsItems[i].classList.remove("activeTabItem")
             }
         }
-        for ( let i = 0 ; i < $tabsItems.length; i++) {
-            $tabsItems[i].addEventListener("click", function () {
-                limpiarClases();
-                if ( $tabsItems[i].classList.contains("activeTabItem") ) {
-                    } else {
-                    $tabsItems[i].classList.add("activeTabItem")
-                } 
+        for ( var i = 0 ; i < tabsItems.length; i++) {
+            console.log(tabsItems)
+
+            tabsItems[i].addEventListener("click", function () {
+                limpiarClases()
+                // 0pinche error explorer
+                console.log(tabsItems)
+                 tabsItems[i].classList.toggle("activeTabItem")
+
+                // if ( $tabsItems[i].classList.toggle("activeTabItem") ) {
+                    // } else {
+                    // $tabsItems[i].classList.add("activeTabItem")
+            //     } 
             });
+        }
+        function showTabContents(index) {
+            $tabsItemContent.forEach(function (node) {
+                 node.style.display="none"
+            });
+            $tabsItemContent[index].style.display="block"
         }
     </script>
 </body>
