@@ -288,35 +288,31 @@
         </section>
     </div>
     <script>
-        var tabsItems=document.querySelectorAll(".tabs-items");
-        // for (var i=0 ; $tabsItems.length;i++){
-        //     console.log($tabsItems[i])
+        const tabsItems=document.querySelectorAll('.tabs-items');
+        for (let j=0 ; j<tabsItems.length;j++){
+            console.log(tabsItems[j])
 
-        // }
+        }
 
 
         var $tabsItemContent=document.querySelectorAll(".tab-itemContent")
         var $newTab=document.querySelectorAll(".newTab");
 
         function limpiarClases() {
-            for ( var i = 0 ; i < tabsItems.length; i++) {
+            for ( let i = 0 ; i < tabsItems.length; i++) {
                 tabsItems[i].classList.remove("activeTabItem")
             }
         }
-        for ( var i = 0 ; i < tabsItems.length; i++) {
-            console.log(tabsItems)
-
-            tabsItems[i].addEventListener("click", function () {
+        function active(idx){
+            tabsItems[idx].addEventListener("click", function () {
                 limpiarClases()
-                // 0pinche error explorer
-                console.log(tabsItems)
-                 tabsItems[i].classList.toggle("activeTabItem")
+                tabsItems[idx].classList.toggle("activeTabItem")
 
-                // if ( $tabsItems[i].classList.toggle("activeTabItem") ) {
-                    // } else {
-                    // $tabsItems[i].classList.add("activeTabItem")
-            //     } 
             });
+                
+        }
+        for ( let i = 0 ; i < tabsItems.length; i++) {
+                active(i)
         }
         function showTabContents(index) {
             $tabsItemContent.forEach(function (node) {
