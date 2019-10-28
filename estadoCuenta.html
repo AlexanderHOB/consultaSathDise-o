@@ -265,9 +265,6 @@
     <script>
         $tabsItems=document.querySelectorAll(".tabs-items");
         $newTab=document.querySelectorAll(".newTab");
-        $titleTab=document.querySelectorAll(".titleTab");
-        // $detalles=document.querySelectorAll(".consultas-detalles");
-        console.log($tabsItems)
 
         function limpiarClases() {
             for ( let i = 0 ; i < $tabsItems.length; i++) {
@@ -278,11 +275,10 @@
             $tabsItems[i].addEventListener("click", function () {
                 limpiarClases();
                 if ( $tabsItems[i].classList.contains("activeTabItem") ) {
-                } else {
+                    } else {
                     $tabsItems[i].classList.add("activeTabItem")
-                   } 
+                } 
             });
-                
         }
     </script>
 </body>
