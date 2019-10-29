@@ -70,7 +70,7 @@
         }    
         .portada-titulo{
             text-align: center;
-            color:#00A959;
+            color:#00a959 ;
             padding: 15px;
         }
         .wrapper {
@@ -188,7 +188,7 @@
         .tab-itemContent {
             display: none;
             padding: 2em;
-            outline: red solid 1px;
+            /* outline: red solid 1px; */
         }
 
 
@@ -238,19 +238,19 @@
         <section class="wrapper">
             <!-- opciones  -->
             <ul class="tabs">
-                <li class="tabs-items activeTabItem" onclick="showTabContents(0)">
+                <li class="tabs-items activeTabItem">
                     <h3 class="titleTab">Código</h3>
                     <div class="newTab"></div>
                 </li>
-                <li class="tabs-items" onclick="showTabContents(1)">
+                <li class="tabs-items">
                     <h3 class="titleTab">DNI - RUC</h3>
                     <div class="newTab"></div>
                 </li>
-                <li class="tabs-items" onclick="showTabContents(2)">
+                <li class="tabs-items">
                     <h3 class="titleTab">Razón Social</h3>
                     <div class="newTab"></div>
                 </li>
-                <li class="tabs-items" onclick="showTabContents(3)">
+                <li class="tabs-items">
                     <h3 class="titleTab">Apellidos y Nombres</h3>
                     <div class="newTab"></div>
                 </li>
@@ -262,8 +262,6 @@
                        <h4>Ingrese el código de contribuyente:</h4>
 
 
-
-                        
                     </div>
                 </li>
                  <li class="tab-itemContent">
@@ -288,41 +286,34 @@
         </section>
     </div>
     <script>
-        var tabsItems=document.querySelectorAll(".tabs-items");
-        // for (var i=0 ; $tabsItems.length;i++){
-        //     console.log($tabsItems[i])
-
-        // }
-
-
+        var $tabsItems=document.querySelectorAll(".tabs-items");
         var $tabsItemContent=document.querySelectorAll(".tab-itemContent")
         var $newTab=document.querySelectorAll(".newTab");
 
         function limpiarClases() {
-            for ( var i = 0 ; i < tabsItems.length; i++) {
-                tabsItems[i].classList.remove("activeTabItem")
+            for ( let i = 0 ; i < $tabsItems.length; i++) {
+                $tabsItems[i].classList.remove("activeTabItem")
+                $tabsItemContent[i].classList.remove("activeTabContent")
             }
         }
-        for ( var i = 0 ; i < tabsItems.length; i++) {
-            console.log(tabsItems)
 
-            tabsItems[i].addEventListener("click", function () {
-                limpiarClases()
-                // 0pinche error explorer
-                console.log(tabsItems)
-                 tabsItems[i].classList.toggle("activeTabItem")
-
-                // if ( $tabsItems[i].classList.toggle("activeTabItem") ) {
-                    // } else {
-                    // $tabsItems[i].classList.add("activeTabItem")
-            //     } 
-            });
+        // obteniendo indices
+        for ( let i = 0 ; i < $tabsItems.length; i++) {
+            eventoClickTab(i)
         }
-        function showTabContents(index) {
-            $tabsItemContent.forEach(function (node) {
-                 node.style.display="none"
-            });
-            $tabsItemContent[index].style.display="block"
+        
+        function eventoClickTab(index) {
+            $tabsItems[index].addEventListener("click",function ( ) {
+                limpiarClases()
+                $tabsItems[index].classList.toggle("activeTabItem")
+                $tabsItemContent[index].classList.toggle("activeTabContent")
+                    // este codido puese ser reemplazado por toggle ---arriba
+                    // if ( $tabsItems[index].classList.contains("activeTabItem") ) {
+                    //     } else { 
+                    //         $tabsItems[index].classList.add("activeTabItem")
+                    //         $tabsItemContent[index].classList.add("activeTabContent")
+                    //     }
+            }); 
         }
     </script>
 </body>
