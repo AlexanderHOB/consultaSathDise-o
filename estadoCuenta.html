@@ -37,16 +37,25 @@
             text-decoration: none;
         }
         .nav{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .main-nav{
             padding: 10px 0;
             width: 100%;
             box-shadow: 0px 5px 5px rgba(0, 0, 0,.2);
             display: flex;
+            position: relative;
+            z-index: 60;
             justify-content: center;
             background: #fff;
         }
         .nav-container{
             display: flex;
             justify-content: space-between;
+            /* background: #fff; */
             width: 80%;
         }
         .nav-logo{
@@ -65,12 +74,72 @@
             align-items: center;/**/
             /* height: 100vh; */
         }
+        .nav-links {
+            display: flex;
+            position: relative;
+            z-index: 40;
+            width: 80%;
+            margin:0 auto;
+            padding: 0;
+            height: 60px;
+            flex-direction: row;
+            justify-content: space-between;
+            list-style: none;
+         }
+        .nav-links-item {
+            display: flex;
+            width: 20%;
+            height: 30px;
+            padding: 0 5px;
+            border-bottom-left-radius: 6px;
+            border-bottom-right-radius: 6px;
+            overflow: hidden;
+            text-align: center;
+            border-left: rgba(0,0,0,0.2) 1px solid;
+            background-color: rgba(0, 169, 90, 0.750);
+            transition: all .2s ease-in-out;
+             
+         }
+        .nav-links-item:hover{
+            height: 50px;
+            overflow: visible;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.05), 0 1px 3px rgba(0,0,0,0.10),
+             0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23) inset;
+            background-color: rgba(0, 169, 90, 1);
+            transition: all .2s ease-out;
+        }
+        .nav-links-item > a{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            color: rgba(255, 255, 209, 0.8);
+            transition: all .2s ease-in-out;
+            margin:auto;
+         }
+        .nav-links-item > a:hover{
+            color: rgba(255, 255, 255, 1);
+         }
+        .activeNavItem {
+            height: 50px;
+            overflow: visible;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 1px 1px rgba(0,0,0,0.10),
+             0 3px 4px rgba(0,0,0,0.23) inset, 4px 0px  4px rgba(0,0,0,0.23) inset;
+            transition: all .2s ease-out;
+            background-color: rgba(0, 169, 90, 1);
+
+         }
+         .activeNavItem > a {
+            color: rgba(255, 255, 255, 1);
+         } 
         .portada{
             width: 100%;
         }    
         .portada-titulo{
             text-align: center;
-            color:#00a959 ;
+            /* color:#00a959 ; */
+            color:rgba(255, 255, 255, 1) ;
             padding: 15px;
         }
         .wrapper {
@@ -90,6 +159,7 @@
             font-weight: normal;
         }
         /* start tab - items  */
+
         .tabs-items {
             position: relative;
             z-index: 40;
@@ -149,12 +219,13 @@
             transition-delay: 2s;
         }
         .activeTabItem .titleTab{
-            color :black;
+            /* color :black; */
+            color : #1D4779;            
             font-weight: bold;
             animation: colorTitle .4s ease-in-out  forwards;
         }
             @keyframes colorTitle {
-                from{color:white}to{color:black}
+                from{color:white}to{color:#1D4779}
             }
         .activeTabItem .newTab{
             animation: .4s ease-in-out  newtab   forwards; 
@@ -182,55 +253,109 @@
             padding: 0;
             border-radius: 5px;
             background-color: #ffffff;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+            box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23) ;
             list-style: none;
         }
         .tab-itemContent {
             display: none;
+            opacity: 0;
             padding: 2em;
             /* outline: red solid 1px; */
         }
-
-
-        .tab-itemContent:nth-child(1) {
-            color:red;
-        }
-        .tab-itemContent:nth-child(2) {
-            color:orange;
-        }
-        .tab-itemContent:nth-child(3) {
-            color:blue;
-        }
-        .tab-itemContent:nth-child(4) {
-            color:green;
-        }
-        
-
         .activeTabContent {
             display: block;
+            opacity: 0;
+            animation: we .9s linear forwards;
+        }
+        @keyframes we {
+            from{opacity: 0;} to  {opacity: 1;}
+            
         }
         .itemContent-wrapper {
             text-align: justify;
         }
-       
+       .group-form {
+           display: flex;
+           flex-direction: row;
+           justify-content: space-between;
+           /* border: red 1px solid; */
+           
+       }
+       .group-form > h5 {
+           margin: 0;
+           padding: 0 0;
+           width:20%;
+           height: 2.5em;
+           line-height: 2.5em;
+        }
+        .group-form > input {
+            width:20%;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .label {
+            border:#00a95a 1px solid;
+            color:#00a95a  ;
+        }
+        .button {
+            background-color:#00a95a;
+            color: #fff;
+            border:#00a95a  1px solid ;
+            transition: all .2s ease-in-out;
+        }
+        .button:hover{
+            color: #00a95a ;
+            background-color:#FFF;
+        }
+        .respuestaDeConsulta {
+            width: 100%;
+            margin-top: 2.5em;
+            display: none;
+        }
+        table{
+            width: 100%;
+        }
+        th,td{
+            text-align: center;
+            border: black 1px solid;
+            height: 2em;
+        }
+        /* .button:hover {
+            border: 1px solid;
+            box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+            outline-color: rgba(255, 255, 255, 0);
+            outline-offset: 15px;
+            text-shadow: 1px 1px 2px #427388; 
+        } */
+
         /* end tab - contents  */
     </style>
 </head>
 <body>
     <nav class="nav">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <a href="http://www.sath.gob.pe/" target="_blank">
-                    <img src="image/sath-logo.svg" alt="logo">
-                </a>
-            </div> 
-            <div class="nav-portal">
-                <a href="http://www.transparencia.gob.pe/enlaces/pte_transparencia_enlaces.aspx?id_entidad=13805&id_tema=1&ver=D" target="_blank">
-                    <img src="image/logo-portal-transparencia.png" alt="portal-transparencia">
-                </a>    
+        <div class="main-nav">
+            <div class="nav-container">
+                    <div class="nav-logo">
+                        <a href="http://www.sath.gob.pe/" target="_blank">
+                            <img src="image/sath-logo.svg" alt="logo">
+                        </a>
+                    </div> 
+                    <div class="nav-portal">
+                        <a href="http://www.transparencia.gob.pe/enlaces/pte_transparencia_enlaces.aspx?id_entidad=13805&id_tema=1&ver=D" target="_blank">
+                            <img src="image/logo-portal-transparencia.png" alt="portal-transparencia">
+                        </a>    
+                    </div>
             </div>
-        </div>    
+        </div>
+        <ul class="nav-links">
+                <li class="nav-links-item "><a href="./ModuloConsultas.html">Inicio</a></li>
+                <li class="nav-links-item activeNavItem"><a href="http://">Estado de Cuenta</a></li>
+                <li class="nav-links-item"><a href="http://">Papeletas de Tránsito</a></li>
+                <li class="nav-links-item"><a href="http://">Papeletas Adminisrativas</a></li>        
+                <li class="nav-links-item"><a href="http://">Otras deudas</a></li>        
+        </ul>
     </nav>
+        
     <div class="container">
         <div class="portada">
            <h1 class="portada-titulo">Estado de Cuenta</h1>
@@ -260,7 +385,31 @@
                 <li class="tab-itemContent activeTabContent">
                     <div class="itemContent-wrapper">
                        <h4>Ingrese el código de contribuyente:</h4>
-
+                        <form class="group-form">
+                            <h5>Código de Administrado :</h5>
+                            <input class="label" type="text" name="" id="" placeholder="Ingrese el código">
+                            <input class="button" type="button" value="Buscar" onCLick="mostrarTabla()">
+                            <input class="button" type="button" value="Imprimir">
+                        </form>
+                        <section class="respuestaDeConsulta">
+                            <table>
+                                <tr>
+                                    <th class="">Año Obligacion</th>
+                                    <th class="">Concepto</th>
+                                    <th class="">Total Deuda</th>
+                                </tr>
+                                <tr>
+                                    <td class=""></td>
+                                    <td class=""></td>
+                                    <td class=""></td>
+                                </tr>
+                                <tr>
+                                    <td class=""></td>
+                                    <td class=""></td>
+                                    <td class=""></td>
+                                </tr>
+                            </table>
+                        </section>
 
                     </div>
                 </li>
@@ -289,22 +438,50 @@
         var $tabsItems=document.querySelectorAll(".tabs-items");
         var $tabsItemContent=document.querySelectorAll(".tab-itemContent")
         var $newTab=document.querySelectorAll(".newTab");
+        var $navLinksItem=document.querySelectorAll(".nav-links-item");
+        var $respuestaDeConsulta=document.querySelectorAll(".respuestaDeConsulta");
+        
 
-        function limpiarClases() {
-            for ( let i = 0 ; i < $tabsItems.length; i++) {
-                $tabsItems[i].classList.remove("activeTabItem")
-                $tabsItemContent[i].classList.remove("activeTabContent")
-            }
-        }
-
-        // obteniendo indices
+        // obteniendo indices para compatibilidad con ie
+        //para los nav-links-items
+        // for ( let i = 0 ; i < $navLinksItem.length; i++) {
+        //     eventoClickNavLinkItem(i)
+        // }
+        //para los tabs
         for ( let i = 0 ; i < $tabsItems.length; i++) {
             eventoClickTab(i)
         }
-        
+
+        //*****************************************************/
+        // limpiar clases para nab-Items
+        // function limpiarClasesNav() {
+        //             for ( let i = 0 ; i < $tabsItemContent.length; i++) {
+        //                 $tabsItemContent[i].classList.remove("activeNavItem")
+        //             }
+        //         }
+
+        // limpiar clases para tab-Items
+        function limpiarClasesTab() {
+                for ( let i = 0 ; i < $tabsItems.length; i++) {
+                    $tabsItems[i].classList.remove("activeTabItem")
+                    $tabsItemContent[i].classList.remove("activeTabContent")
+                }
+            }
+        //*****************************************************/
+
+        // funciones compatibles con ie
+        // funciones para nav-link-items
+        // function eventoClickNavLinkItem(index) {
+        //             $navLinksItem[index].addEventListener("click",function ( ) {
+        //                 limpiarClasesNav()
+        //                 $navLinksItem[index].classList.toggle("activeNavItem")
+        //             }); 
+        //      }
+
+        // funciones para tabItems
         function eventoClickTab(index) {
             $tabsItems[index].addEventListener("click",function ( ) {
-                limpiarClases()
+                limpiarClasesTab()
                 $tabsItems[index].classList.toggle("activeTabItem")
                 $tabsItemContent[index].classList.toggle("activeTabContent")
                     // este codido puese ser reemplazado por toggle ---arriba
@@ -315,6 +492,14 @@
                     //     }
             }); 
         }
+
+        // funcion mostrar tabla
+        function mostrarTabla() {
+            for (let i = 0 ; i < $respuestaDeConsulta.length ; i++ )
+            $respuestaDeConsulta[i].style.display="block"   
+        }
+
+        
     </script>
 </body>
 </html>
