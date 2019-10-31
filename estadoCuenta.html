@@ -65,7 +65,7 @@
         }
         .container{
             position: relative;  
-            top: 8%;
+            top: 5%;
             margin:0 auto;
             width: 80%;
             display: flex;/**/
@@ -138,7 +138,7 @@
         }    
         .portada-titulo{
             display: none;
-            padding: 5px 0;
+            padding: 0px 0;
             font-weight: normal;
             font-size: 25px;
             text-align: center;
@@ -264,7 +264,7 @@
             display: none;
             opacity: 0;
             padding: 1.5em;    
-            transition: all .3s ease-in-out; 
+            transition: all .1s ease-in-out; 
         }
         .activeTabContent {
             width: 100%;
@@ -281,18 +281,19 @@
        .group-form {
            display: flex;
            flex-direction: row-reverse;
-           justify-content: space-around;
+           justify-content: space-between;
            /* border: red 1px solid; */
            margin-top: 2em;
+           height: 3em;
        }
-       .group-form > h5 {
+       /* .group-form > h5 {
            margin: 0;
            padding: 0 0;
            height: 4em;
            line-height: 4em;
            font-size: .9em;
            font-weight: normal;
-        }
+        } */
         .group-form > input {
             border-radius: 5px;
             text-align: center;
@@ -305,7 +306,7 @@
         }
         
         .button {
-            margin: 1em 0;
+            margin: .1em 0;
             width:15%;  
             background-color:#00a95a;
             color: #fff;
@@ -317,7 +318,7 @@
             margin: 0 0;
             color: #00a95a ;
             background-color:#FFF;
-           font-size: .9em;
+           font-size: 1em;
         }
         .respuestaDeConsulta {
             width: 100%;
@@ -406,12 +407,12 @@
             <ul class="tab-contents">
                 <li class="tab-itemContent activeTabContent">
                     <div class="itemContent-wrapper">
-                       <h4>Ingrese el código de contribuyente</h4>
+                       <h4>Ingrese el código de contribuyente :</h4>
                         <form class="group-form">
                             <input class="button" type="button" value="Imprimir">
                             <input class="button" type="button" value="Buscar" onCLick="mostrarTabla()">
-                            <input class="label" type="text" name="" id="" placeholder="Ingrese el código">
-                            <h5>Código de Administrado :</h5>
+                            <input class="label" type="text" name="" id="" placeholder="Ingrese aqui el código">
+                            <!-- <h5>Código de Administrado :</h5> -->
                         </form>
                         <section class="respuestaDeConsulta">
                             <table>
@@ -437,12 +438,12 @@
                 </li>
                  <li class="tab-itemContent">
                     <div class="itemContent-wrapper">
-                        <h4>Ingrese el número de DNI o RUC</h4>
+                        <h4>Ingrese el número de DNI o RUC :</h4>
                          <form class="group-form">
                              <input class="button" type="button" value="Imprimir">
                              <input class="button" type="button" value="Buscar" onCLick="mostrarTabla()">
-                             <input class="label" type="text" name="" id="" placeholder="Ingrese el DNI o RUC">
-                             <h5>Número de DNI o RUC :</h5>
+                             <input class="label" type="text" name="" id="" placeholder="Ingrese aqui el DNI o RUC">
+                             <!-- <h5>Número de DNI o RUC :</h5> -->
                          </form>
                          <section class="respuestaDeConsulta">
                              <table>
@@ -467,12 +468,12 @@
                 </li>
                 <li class="tab-itemContent">
                     <div class="itemContent-wrapper">
-                       <h4>Ingrese el nombre de la Razón Social:</h4>
+                       <h4>Ingrese el nombre de la Razón Social :</h4>
                        <form class="group-form">
                            <input class="button" type="button" value="Imprimir">
                            <input class="button" type="button" value="Buscar" onCLick="mostrarTabla()">
-                           <input class="label" type="text" name="" id="" placeholder="Ingrese la Razón Social">
-                           <h5>Razón Social :</h5>
+                           <input class="label" type="text" name="" id="" placeholder="Ingrese aqui la Razón Social">
+                           <!-- <h5>Razón Social :</h5> -->
                     </form>
                     <section class="respuestaDeConsulta">
                         <table>
@@ -497,12 +498,12 @@
                 </li>
                 <li class="tab-itemContent">
                     <div class="itemContent-wrapper">
-                       <h4>Ingrese los Apellidos y Nombres:</h4>
+                       <h4>Ingrese los Apellidos y Nombres :</h4>
                             <form class="group-form">
                                 <input class="button" type="button" value="Imprimir">
                                 <input class="button" type="button" value="Buscar" onCLick="mostrarTabla()">
-                                <input class="label" type="text" name="" id="" placeholder="Ingrese los Apellidos y Nombres">
-                                <h5>Apellidos y Nombres :</h5>
+                                <input class="label" type="text" name="" id="" placeholder="Ingrese aqui los Apellidos y Nombres">
+                                <!-- <h5>Apellidos y Nombres :</h5> -->
                             </form>
                             <section class="respuestaDeConsulta">
                                 <table>

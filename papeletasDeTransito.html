@@ -65,7 +65,7 @@
         }
         .container{
             position: relative;  
-            top: 8%;
+            top:5%;
             margin:0 auto;
             width: 80%;
             display: flex;/**/
@@ -259,30 +259,31 @@
             list-style: none;
         }
         .tab-itemContent {
+            width: 100%;
             display: none;
             opacity: 0;
-            padding: 2em;
-            /* outline: red solid 1px; */
+            padding: 1.5em;    
+            transition: all .1s ease-in-out; 
         }
         .activeTabContent {
+            width: 100%;
             display: block;
-            opacity: 0;
-            animation: we .9s linear forwards;
+            opacity: 1;
+            animation: we .3s ease-in-out forwards;
         }
         @keyframes we {
-            from{opacity: 0;} to  {opacity: 1;}
-            
-        }
+            from{ opacity: 0;transform: scaleY(0);} to  { opacity: 1;transform: scaleY(1);}
+        }  
         .itemContent-wrapper {
             text-align: justify;
         }
-       .group-form {
+        .group-form {
            display: flex;
            flex-direction: row-reverse;
            justify-content: space-between;
            /* border: red 1px solid; */
            margin-top: 2em;
-           
+           height: 3em;
        }
        .group-form > h5 {
              margin: 0;
@@ -299,37 +300,43 @@
         .label {
             width:40%;
             border:#00a95a 1px solid;
-            color:#00a95a  ;
+            color:#00a95a ;
             font-size: 1.4em;
         }
         .nothing {
             width:4%;
         }
         .select {
-            margin: 1em 0;
+            margin: auto 0;
             border:#00a95a 1px solid;
             border-radius: 5px;
             width: 5%;
+            height: 3em;
         }
         .button {
-            margin: 1em 0;
+            margin: .1em 0;
             width:15%;  
             background-color:#00a95a;
             color: #fff;
             border:#00a95a  1px solid ;
             transition: all .2s ease-in-out;
+             
         }
         .button:hover {
             margin: 0 0;
             color: #00a95a ;
             background-color:#FFF;
-           font-size: .9em;
+           font-size: 1em;
         }
         .respuestaDeConsulta {
             width: 100%;
             margin-top: 2.5em;
             display: none;
-            overflow: auto;
+            overflow: hidden;
+            animation: gaa .45s ease-in-out forwards;
+        }
+        @keyframes gaa {
+            from{transform: scaleY(0);} to {transform: scaleY(1);}
         }
         table{
             width: 100%;
@@ -399,14 +406,14 @@
                         <form class="group-form">
                             <input class="button" type="button" value="Imprimir">
                             <input class="button" type="button" value="Buscar" onCLick="mostrarTabla()">
-                            <input class="label" type="text" name="" id="" placeholder="Ingrese el número de placa">
+                            <input class="label" type="text" name="" id="" placeholder="Ingrese aqui el número de placa">
                             <div class="nothing"></div>
                             <h5>Número de placa :</h5>
                         </form>
                         <form class="group-form">
                                 <input class="button" type="button" value="Imprimir">
                                 <input class="button" type="button" value="Buscar" onCLick="mostrarTabla()">
-                                <input class="label" type="text" name="" id="" placeholder="Ingrese el número de PIT">
+                                <input class="label" type="text" name="" id="" placeholder="Ingrese aqui el número de PIT">
                                 <select class="select" name="select">
                                         <option value="value1" selected>20</option> 
                                         <option value="value2" >10</option>
