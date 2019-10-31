@@ -232,7 +232,6 @@
             }
         .activeTabItem .newTab{
             animation: .4s ease-in-out  newtab   forwards; 
-
         }
         @keyframes newtab {
            0% {
@@ -255,27 +254,26 @@
             margin: 0;
             padding: 0;
             width: 100%;
-            min-height: 195px;
             border-radius: 5px;
             box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23) ;
             list-style: none;
             background-color: #ffffff;
-            /* outline: red 1px solid; */
         }
         .tab-itemContent {
+            width: 100%;
             display: none;
             opacity: 0;
-            padding: 2em;
-            /* outline: red solid 1px; */
+            padding: 1.5em;    
+            transition: all .3s ease-in-out; 
         }
         .activeTabContent {
+            width: 100%;
             display: block;
-            opacity: 0;
-            animation: we .9s linear forwards;
+            opacity: 1;
+            animation: we .3s ease-in-out forwards;
         }
         @keyframes we {
-            from{opacity: 0;} to  {opacity: 1;}
-            
+            from{ opacity: 0;transform: scaleY(0);} to  { opacity: 1;transform: scaleY(1);}
         }
         .itemContent-wrapper {
             text-align: justify;
@@ -326,6 +324,10 @@
             margin-top: 2.5em;
             display: none;
             overflow: hidden;
+            animation: gaa .45s ease-in-out forwards;
+        }
+        @keyframes gaa {
+            from{transform: scaleY(0);} to {transform: scaleY(1);}
         }
         table{
             width: 100%;
